@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:tailwindcss/recommended",
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "unused-imports",
+    "tailwindcss",
+    "simple-import-sort"
+  ],
+  "rules": {
+    "react/function-component-definition": ["off"],
+    "react/jsx-props-no-spreading": ["warn"],
+    "react/react-in-jsx-scope": ["off"]
+  }
+}
