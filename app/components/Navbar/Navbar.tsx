@@ -1,8 +1,7 @@
-import React from 'react';
-
 import Container from '../Container';
 import Logo from './Logo';
 import Search from './Search';
+import UserMenu from './UserMenu';
 
 export const Navbar = () => {
   return (
@@ -26,6 +25,7 @@ export const Navbar = () => {
           >
             <Logo />
             <Search />
+            <UserMenu />
           </div>
         </Container>
       </div>
