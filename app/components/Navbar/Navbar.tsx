@@ -2,6 +2,7 @@ import React from 'react';
 
 import Container from '../Container';
 import Logo from './Logo';
+import Search from './Search';
 
 export const Navbar = () => {
   return (
@@ -24,6 +25,7 @@ export const Navbar = () => {
           "
           >
             <Logo />
+            <Search />
           </div>
         </Container>
       </div>
