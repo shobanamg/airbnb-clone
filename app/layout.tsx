@@ -3,8 +3,9 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 
 import ClientOnly from './components/ClientOnly';
-import Modal from './components/modals/Modal';
+import RegisterModal from './components/modals/RegisterModal';
 import { Navbar } from './components/navbar/Navbar';
+import ToasterProvider from './providers/ToasterProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +23,8 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ClientOnly>
-          <Modal actionLabel="Submit" title="Hello World" isOpen />
+          <ToasterProvider />
+          <RegisterModal />
           <Navbar />
         </ClientOnly>
         <div className="pb-20 pt-28">{children}</div>
