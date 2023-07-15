@@ -2,6 +2,7 @@ import './globals.css';
 
 import { Inter } from 'next/font/google';
 
+import getCurrentUser from './actions/getCurrentUser';
 import ClientOnly from './components/ClientOnly';
 import LoginModal from './components/modals/LoginModal';
 import RegisterModal from './components/modals/RegisterModal';
@@ -20,6 +21,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -27,7 +30,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <LoginModal />
           <RegisterModal />
-          <Navbar />
+          <Navbar currentUser={currentUser} />
         </ClientOnly>
         <div className="pb-20 pt-28">{children}</div>
       </body>
