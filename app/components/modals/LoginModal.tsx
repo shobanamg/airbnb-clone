@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import type { FieldValues, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -49,6 +49,11 @@ const LoginModal = () => {
       }
     });
   };
+
+  const onToggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -101,17 +106,17 @@ const LoginModal = () => {
         "
       >
         <p>
-          Already have an account?
+          First time using Airbnb?
           <span
-            onClick={registerModal.onClose}
+            onClick={onToggle}
             className="
               cursor-pointer
+              pl-2
               text-neutral-800
               hover:underline
             "
           >
-            {' '}
-            Log in
+            Create an account
           </span>
         </p>
       </div>
