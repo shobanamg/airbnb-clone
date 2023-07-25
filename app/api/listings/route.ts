@@ -6,7 +6,7 @@ import prisma from '../../libs/prismadb';
 export async function POST(request: Request) {
   const currentUser = await getCurrentUser();
   if (!currentUser) {
-    return new Response(null, { status: 401 });
+    return NextResponse.error();
   }
 
   const body = await request.json();
@@ -21,12 +21,6 @@ export async function POST(request: Request) {
     location,
     price,
   } = body;
-
-  Object.keys(body).forEach((value: any) => {
-    if (!body[value]) {
-      return NextResponse.error();
-    }
-  });
 
   const listing = await prisma.listing.create({
     data: {
