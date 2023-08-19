@@ -2,9 +2,13 @@
 
 import { BiSearch } from 'react-icons/bi';
 
+import useSearchModal from '../../hooks/useSearchModal';
+
 const Search = () => {
+  const SearchModal = useSearchModal();
   return (
     <div
+      onClick={() => SearchModal.onOpen()}
       className="
         w-full
         cursor-pointer
